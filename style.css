@@ -1,0 +1,1808 @@
+/* =========================================================
+   FITZONE — MEMBER 2
+   PREMIUM / CRAZY FITNESS UI
+========================================================= */
+
+
+/* =========================
+   GOOGLE FONT
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800;900&display=swap');
+
+
+/* =========================
+   ROOT VARIABLES
+========================= */
+
+:root {
+    --black: #050505;
+    --dark: #0b0b0b;
+    --card: #111111;
+    --card2: #161616;
+
+    --white: #ffffff;
+    --grey: #a7a7a7;
+    --light-grey: #dedede;
+
+    --red: #ff3131;
+    --red-dark: #c91414;
+
+    --border: rgba(255,255,255,0.09);
+
+    --glow: 0 0 30px rgba(255,49,49,0.25);
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(255,49,49,0.08),
+            transparent 25%
+        ),
+        #050505;
+
+    color: var(--white);
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol {
+    padding-left: 20px;
+}
+
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--red);
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+
+    padding: 18px 5%;
+
+    background: rgba(5,5,5,0.82);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+nav {
+    max-width: 1400px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo a {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    color: white;
+}
+
+.logo span {
+    color: var(--red);
+
+    text-shadow:
+        0 0 15px rgba(255,49,49,0.7);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav-menu {
+    list-style: none;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0;
+}
+
+.nav-menu a {
+    position: relative;
+
+    display: block;
+
+    padding: 8px 12px;
+
+    color: #bdbdbd;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.nav-menu a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--red);
+
+    transform: translateX(-50%);
+
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: white;
+
+    text-shadow:
+        0 0 12px rgba(255,255,255,0.3);
+}
+
+.nav-menu a:hover::after {
+    width: 70%;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+section {
+    width: 100%;
+
+    padding: 110px 6%;
+
+    position: relative;
+}
+
+.section-heading {
+    max-width: 850px;
+
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+.section-heading p {
+    color: var(--red);
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 14px;
+}
+
+.section-heading h2 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: clamp(32px, 5vw, 55px);
+
+    line-height: 1.05;
+
+    margin-bottom: 18px;
+
+    color: white;
+
+    text-transform: uppercase;
+}
+
+.section-heading span {
+    color: var(--grey);
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 92vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(5,5,5,0.76),
+            rgba(5,5,5,0.96)
+        ),
+        url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=2000&q=90");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+}
+
+
+/* glowing circle */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(255,49,49,0.10);
+
+    filter: blur(80px);
+
+    top: -200px;
+    left: -150px;
+}
+
+
+/* second glow */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    background: rgba(255,49,49,0.07);
+
+    filter: blur(90px);
+
+    bottom: -200px;
+    right: -100px;
+}
+
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1000px;
+}
+
+
+.small-title {
+    color: var(--red);
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+}
+
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: clamp(55px, 10vw, 125px);
+
+    line-height: 0.9;
+
+    font-weight: 900;
+
+    letter-spacing: -4px;
+
+    color: white;
+
+    margin-bottom: 35px;
+
+    text-shadow:
+        0 10px 40px rgba(0,0,0,0.8);
+}
+
+.hero h1 span {
+    color: var(--red);
+
+    text-shadow:
+        0 0 35px rgba(255,49,49,0.6);
+}
+
+
+.hero-content > p:not(.small-title) {
+    max-width: 680px;
+
+    margin: auto auto 40px;
+
+    color: #c0c0c0;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.btn {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 15px 28px;
+
+    background: var(--red);
+
+    color: white;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 0 rgba(255,49,49,0);
+
+    transition: 0.35s;
+}
+
+
+.btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
+
+    transition: 0.5s;
+}
+
+
+.btn:hover::before {
+    left: 120%;
+}
+
+
+.btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 35px rgba(255,49,49,0.35);
+}
+
+
+.btn.secondary {
+    background: transparent;
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    box-shadow: none;
+}
+
+
+.btn.secondary:hover {
+    border-color: var(--red);
+
+    color: var(--red);
+
+    background: rgba(255,49,49,0.05);
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+    padding: 45px 6%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 1px;
+
+    background: #191919;
+
+    border-top: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.stat-box {
+    text-align: center;
+
+    padding: 25px;
+
+    background: #090909;
+
+    transition: 0.3s;
+}
+
+
+.stat-box:hover {
+    background: #111111;
+
+    transform: translateY(-3px);
+}
+
+
+.stat-box h2 {
+    font-family: 'Orbitron', sans-serif;
+
+    color: var(--red);
+
+    font-size: 38px;
+
+    text-shadow:
+        0 0 20px rgba(255,49,49,0.4);
+}
+
+
+.stat-box p {
+    color: #888;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   FITNESS TOOLS
+========================================================= */
+
+.tools {
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,49,49,0.07),
+            transparent 35%
+        ),
+        #070707;
+}
+
+
+.card-container {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+.tool-card,
+.plan-card {
+    position: relative;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #0b0b0b
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    transition: 0.4s;
+}
+
+
+.tool-card::before,
+.plan-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--red),
+        transparent
+    );
+
+    transform: translateX(-100%);
+
+    transition: 0.5s;
+}
+
+
+.tool-card:hover::before,
+.plan-card:hover::before {
+    transform: translateX(100%);
+}
+
+
+.tool-card:hover,
+.plan-card:hover {
+    transform: translateY(-10px);
+
+    border-color:
+        rgba(255,49,49,0.35);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5),
+        var(--glow);
+}
+
+
+.card-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,49,49,0.08);
+
+    border: 1px solid rgba(255,49,49,0.25);
+
+    border-radius: 12px;
+
+    font-size: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 0 25px rgba(255,49,49,0.08);
+}
+
+
+.tool-card h3,
+.plan-card h3 {
+    font-size: 23px;
+
+    margin-bottom: 12px;
+}
+
+
+.tool-card p,
+.plan-card p {
+    color: #8e8e8e;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+
+.tool-card a {
+    color: var(--red);
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   GOALS
+========================================================= */
+
+.goals {
+    background: #050505;
+}
+
+
+.goal-container {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.goal-card {
+    min-height: 300px;
+
+    padding: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #080808
+        );
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: 0.4s;
+}
+
+
+.goal-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    background: var(--red);
+
+    opacity: 0.05;
+
+    border-radius: 50%;
+
+    top: -70px;
+    right: -70px;
+
+    filter: blur(20px);
+}
+
+
+.goal-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(255,49,49,0.35);
+
+    box-shadow: var(--glow);
+}
+
+
+.goal-card h3 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 25px;
+
+    margin-bottom: 12px;
+}
+
+
+.goal-card p {
+    color: #888;
+
+    margin-bottom: 20px;
+}
+
+
+.goal-card a {
+    color: var(--red);
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   WORKOUT PREVIEW
+========================================================= */
+
+.workout-preview {
+    background: #0a0a0a;
+}
+
+
+.workout-grid {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+
+.workout-grid article {
+    padding: 30px;
+
+    min-height: 230px;
+
+    background: #111111;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    transition: 0.4s;
+}
+
+
+.workout-grid article:hover {
+    background: #151515;
+
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(255,49,49,0.3);
+}
+
+
+.workout-grid h3 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 17px;
+
+    margin-bottom: 15px;
+}
+
+
+.workout-grid p {
+    color: #858585;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+
+.workout-grid a {
+    color: var(--red);
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   NUTRITION
+========================================================= */
+
+.nutrition-preview {
+    min-height: 550px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            #050505 20%,
+            rgba(5,5,5,0.75),
+            rgba(5,5,5,0.45)
+        ),
+        url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1800&q=90");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+.nutrition-preview > div {
+    max-width: 650px;
+}
+
+
+.nutrition-preview p:first-child {
+    color: var(--red);
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+
+.nutrition-preview h2 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: clamp(35px, 5vw, 60px);
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+
+.nutrition-preview p:not(:first-child) {
+    color: #b5b5b5;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   CALCULATORS
+========================================================= */
+
+.calculator-page {
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,49,49,0.08),
+            transparent 30%
+        ),
+        #070707;
+}
+
+
+.calculator-box {
+    max-width: 620px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    background:
+        rgba(17,17,17,0.85);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.5);
+
+    backdrop-filter: blur(15px);
+}
+
+
+.calculator-box form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.calculator-box label {
+    color: #ddd;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-top: 10px;
+}
+
+
+.calculator-box input,
+.calculator-box select,
+.contact-form input,
+.contact-form textarea {
+
+    width: 100%;
+
+    padding: 14px;
+
+    background: #080808;
+
+    color: white;
+
+    border: 1px solid #292929;
+
+    border-radius: 7px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+
+.calculator-box input:focus,
+.calculator-box select:focus,
+.contact-form input:focus,
+.contact-form textarea:focus {
+
+    border-color: var(--red);
+
+    box-shadow:
+        0 0 0 3px rgba(255,49,49,0.08);
+}
+
+
+.calculator-box button,
+.contact-form button {
+
+    border: none;
+
+    background: var(--red);
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    margin-top: 15px;
+
+    transition: 0.3s;
+}
+
+
+.calculator-box button:hover,
+.contact-form button:hover {
+
+    background: var(--red-dark);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(255,49,49,0.25);
+}
+
+
+#bmiResult,
+#bodyFatResult {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: #090909;
+
+    border: 1px solid var(--border);
+
+    border-left: 3px solid var(--red);
+
+    border-radius: 8px;
+
+    color: #ddd;
+
+    text-align: center;
+}
+
+
+.info-box {
+
+    max-width: 620px;
+
+    margin: 25px auto 0;
+
+    padding: 25px;
+
+    background: #101010;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+}
+
+
+.info-box h3 {
+    color: white;
+
+    margin-bottom: 12px;
+}
+
+
+.info-box li {
+    color: #888;
+
+    margin-bottom: 7px;
+}
+
+
+/* =========================================================
+   DIET / WORKOUT
+========================================================= */
+
+.plan-section {
+    background: #070707;
+}
+
+
+.plan-card ul,
+.plan-card ol {
+    color: #888;
+}
+
+
+.plan-card li {
+    margin-bottom: 9px;
+}
+
+
+/* =========================================================
+   EXERCISE LIBRARY
+========================================================= */
+
+.exercise-section {
+    background: #050505;
+}
+
+
+.exercise-grid {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+
+.exercise-grid article {
+
+    position: relative;
+
+    padding: 30px;
+
+    min-height: 180px;
+
+    background: #101010;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition: 0.4s;
+}
+
+
+.exercise-grid article::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 3px;
+    height: 100%;
+
+    background: var(--red);
+
+    transform: scaleY(0);
+
+    transform-origin: bottom;
+
+    transition: 0.4s;
+}
+
+
+.exercise-grid article:hover::before {
+    transform: scaleY(1);
+}
+
+
+.exercise-grid article:hover {
+
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(255,49,49,0.25);
+
+    background: #141414;
+}
+
+
+.exercise-grid h3 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 17px;
+
+    margin-bottom: 12px;
+}
+
+
+.exercise-grid p {
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   NUTRITION GRID
+========================================================= */
+
+.nutrition-section {
+    background: #090909;
+}
+
+
+.nutrition-grid {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.nutrition-grid article {
+
+    padding: 32px;
+
+    background: #111111;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    transition: 0.35s;
+}
+
+
+.nutrition-grid article:hover {
+
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(255,49,49,0.3);
+
+    box-shadow:
+        var(--glow);
+}
+
+
+.nutrition-grid h3 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 20px;
+
+    margin-bottom: 12px;
+}
+
+
+.nutrition-grid p {
+    color: #888;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-section {
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(255,49,49,0.08),
+            transparent 30%
+        ),
+        #060606;
+}
+
+
+.about-content {
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 45px;
+
+    background: #101010;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+}
+
+
+.about-content h3 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 24px;
+
+    margin: 25px 0 10px;
+}
+
+
+.about-content p {
+    color: #888;
+}
+
+
+.about-content li {
+    color: #999;
+
+    margin-bottom: 9px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section {
+    background: #080808;
+}
+
+
+.contact-container {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 25px;
+}
+
+
+.contact-info {
+
+    padding: 40px;
+
+    min-height: 350px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #090909
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+}
+
+
+.contact-info h3 {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+
+.contact-info p {
+    color: #888;
+
+    margin-bottom: 15px;
+}
+
+
+.contact-form {
+
+    padding: 35px;
+
+    background: #111111;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+}
+
+
+.contact-form form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.contact-form label {
+
+    color: #ddd;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-top: 10px;
+}
+
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.final-cta {
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,49,49,0.13),
+            transparent 50%
+        ),
+        #050505;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.final-cta h2 {
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: clamp(35px, 6vw, 70px);
+
+    margin-bottom: 12px;
+}
+
+
+.final-cta p {
+
+    color: #888;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    background: #020202;
+
+    padding: 65px 6% 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.footer-content {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 40px;
+}
+
+
+.footer-content h2 {
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 26px;
+
+    letter-spacing: 2px;
+}
+
+
+.footer-content h2 span {
+    color: var(--red);
+}
+
+
+.footer-content h3 {
+
+    font-size: 14px;
+
+    margin-bottom: 18px;
+
+    color: white;
+}
+
+
+.footer-content p {
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+
+.footer-content a {
+
+    display: block;
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 9px;
+
+    transition: 0.3s;
+}
+
+
+.footer-content a:hover {
+
+    color: var(--red);
+
+    transform: translateX(4px);
+}
+
+
+.copyright {
+
+    max-width: 1250px;
+
+    margin: 45px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #151515;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .nav-menu {
+        gap: 2px;
+    }
+
+    .nav-menu a {
+        padding: 7px;
+
+        font-size: 11px;
+    }
+
+    .workout-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .exercise-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    header {
+        position: relative;
+    }
+
+    nav {
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .nav-menu {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 5px;
+    }
+
+    .nav-menu a {
+        font-size: 11px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-container,
+    .goal-container,
+    .nutrition-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .nutrition-preview {
+        background:
+            linear-gradient(
+                rgba(5,5,5,0.85),
+                rgba(5,5,5,0.95)
+            ),
+            url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1800&q=90");
+
+        background-size: cover;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    section {
+        padding: 75px 5%;
+    }
+
+    .hero {
+        min-height: 80vh;
+
+        background-attachment: scroll;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+
+        letter-spacing: -2px;
+    }
+
+    .hero-content > p:not(.small-title) {
+        font-size: 15px;
+    }
+
+    .section-heading {
+        margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+
+        padding: 25px 3%;
+    }
+
+    .stat-box {
+        padding: 15px 5px;
+    }
+
+    .stat-box h2 {
+        font-size: 28px;
+    }
+
+    .workout-grid,
+    .exercise-grid,
+    .nutrition-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator-box,
+    .contact-form,
+    .contact-info,
+    .about-content {
+        padding: 25px;
+    }
+
+    .nutrition-preview h2 {
+        font-size: 38px;
+    }
+
+    .final-cta h2 {
+        font-size: 38px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   SIMPLE ENTRY ANIMATION
+========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+.hero-content {
+    animation: fadeUp 1s ease forwards;
+}
+
+
+.tool-card,
+.goal-card,
+.workout-grid article,
+.exercise-grid article,
+.nutrition-grid article {
+    animation: fadeUp 0.8s ease both;
+}
